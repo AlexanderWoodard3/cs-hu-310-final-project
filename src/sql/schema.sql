@@ -81,3 +81,24 @@ CREATE TABLE IF NOT EXISTS class_registrations(
  PRIMARY KEY (student_id),
  UNIQUE (class_section_id, student_id)
 );
+
+DELIMITER $$
+CREATE FUNCTION convert_to_grade_point(letter_grade char(2))
+RETURNS INT
+   DETERMINISTIC
+BEGIN
+    INSERT INTO class_registrations VALUE (grade_point);
+		  IF (@letter_grade = 'A')
+			   THEN RETURN 4;
+		  ELSEIF (@letter_grade = 'B')
+			   THEN RETURN 3;
+    ELSEIF (@letter_grade = 'C')
+			   THEN RETURN 2;
+		  ELSEIF (@letter_grade = 'D')
+			   THEN RETURN 1;
+    ELSEIF (@letter_grade = 'F')
+			   THEN RETURN 0;
+		  ELSE 
+			   RETURN NULL;
+		  END IF;
+END $$
