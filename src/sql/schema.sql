@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS instructors(
  last_name VARCHAR(80) NOT NULL,
  birthdate DATE,
  PRIMARY KEY (instructor_id),
- FOREIGN KEY (academic_title_id) REFERENCES academic_titles (academic_title_id)
+ FOREIGN KEY (academic_title_id) REFERENCES academic_titles(academic_title_id)
 );
 
 
