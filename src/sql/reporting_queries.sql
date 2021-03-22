@@ -16,7 +16,7 @@ GROUP BY s.student_id, s.total_credits;
  -- Calculate the GPA for each student (across all classes and all terms)
  
 SELECT
-	students.student_id
+	*
     (SUM(gp.points * c.credits) / s.total_credits) AS GPA
 FROM
 	students
