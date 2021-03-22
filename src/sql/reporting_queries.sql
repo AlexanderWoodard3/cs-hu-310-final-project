@@ -3,27 +3,24 @@ USE cs_hu_310_final_project;
 
  -- Calculate the GPA for a student given their student_id (use student_id = 1)
  
-SELECT
-	student_id = 1
-    (SUM(gp.points * c.credits) / s.total_credits) AS GPA
-FROM
-	students
-	JOIN class_registrations t ON s.student_id = t.student_id
-	JOIN grades c ON t.course_id = c.course_id
-	JOIN grade_point gp ON gp.grade = t.grade
-GROUP BY s.student_id, s.total_credits;
+SELECT 
+	first_name,
+	last_name,
+	(SELECT COUNT(student_id) AS number_of_classes FROM class_registrations WHERE student_id = 1) AS number_of_classes
+    -- (SELECT COUNT(convert_to_grade_point(letter_grade)) AS total_grade_points_earned FROM grades WHERE student_id = 1) AS total_grade_points_earned,
+    -- SUM(COUNT(convert_to_grade_point(letter_grade)) / COUNT(class_registrations.student_id)) AS GPA
+FROM students
+WHERE student_id = 1
 
  -- Calculate the GPA for each student (across all classes and all terms)
  
-SELECT
-	*
-    (SUM(gp.points * c.credits) / s.total_credits) AS GPA
-FROM
-	students
-	JOIN class_registrations t ON s.student_id = t.student_id
-	JOIN grades c ON t.course_id = c.course_id
-	JOIN grade_point gp ON gp.grade = t.grade
-GROUP BY s.student_id, s.total_credits;
+SELECT 
+	first_name,
+	last_name,
+    (SELECT COUNT(student_id) AS number_of_classes FROM class_registrations WHERE student_id = 1) AS number_of_classes
+    -- (SELECT COUNT(convert_to_grade_point(letter_grade)) AS total_grade_points_earned FROM grades WHERE student_id = 1) AS total_grade_points_earned,
+    -- SUM(COUNT(convert_to_grade_point(letter_grade)) / COUNT(class_registrations.student_id)) AS GPA
+FROM students
  
   -- Calculate the avg GPA for each class
   
