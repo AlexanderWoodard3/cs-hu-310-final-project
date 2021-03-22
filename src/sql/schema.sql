@@ -78,7 +78,10 @@ CREATE TABLE IF NOT EXISTS class_registrations(
  student_id INT NOT NULL,
  grade_id INT,
  signup_timestamp datetime DEFAULT CURRENT_TIMESTAMP,
- PRIMARY KEY (student_id),
+ PRIMARY KEY (class_registration_id),
+ FOREIGN KEY (class_section_id) REFERENCES class_sections(class_section_id),
+ FOREIGN KEY (student_id) REFERENCES students(student_id),
+ FOREIGN KEY (grade_id) REFERENCES grades(grade_id),
  UNIQUE (class_section_id, student_id)
 );
 
@@ -88,17 +91,17 @@ RETURNS INT
    DETERMINISTIC
 BEGIN
     INSERT INTO class_registrations VALUE (grade_point);
-		  IF (@letter_grade = 'A')
-			   THEN RETURN 4;
-		  ELSEIF (@letter_grade = 'B')
-			   THEN RETURN 3;
-    ELSEIF (@letter_grade = 'C')
-			   THEN RETURN 2;
-		  ELSEIF (@letter_grade = 'D')
-			   THEN RETURN 1;
-    ELSEIF (@letter_grade = 'F')
-			   THEN RETURN 0;
-		  ELSE 
-			   RETURN NULL;
-		  END IF;
+	IF (letter_grade = 'A')
+		THEN RETURN grade_point = 4;
+	ELSEIF (letter_grade = 'B')
+		THEN RETURN grade_point = 3;
+        ELSEIF (letter_grade = 'C')
+		THEN RETURN grade_point = 2;
+	ELSEIF (letter_grade = 'D')
+		THEN RETURN grade_point = 1;
+        ELSEIF (letter_grade = 'F')
+		THEN RETURN grade_point = 0;
+	ELSE 
+		RETURN NULL;
+	END IF;
 END $$
