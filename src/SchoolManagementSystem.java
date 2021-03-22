@@ -46,7 +46,8 @@ public class SchoolManagementSystem {
         Statement sqlStatement = null;
 
         try {
-             /* Your logic goes here */
+            System.out.println("Grade has been Submitted!");
+            System.out.println("-".repeat(80));
             throw new SQLException(); // REMOVE THIS (this is just to force it to compile)
         } catch (SQLException sqlException) {
             System.out.println("Failed to submit grade");
@@ -72,7 +73,10 @@ public class SchoolManagementSystem {
         Statement sqlStatement = null;
 
         try {
-             /* Your logic goes here */
+        	System.out.println("Class Registration ID | Student ID | Class Section ID");
+            System.out.println("-".repeat(80));
+//           	 System.out.println( + " | " +  + " | " +  + " | " + );
+            System.out.println("-".repeat(80));
             throw new SQLException(); // REMOVE THIS (this is just to force it to compile)
         } catch (SQLException sqlException) {
             System.out.println("Failed to register student");
@@ -98,7 +102,9 @@ public class SchoolManagementSystem {
         Statement sqlStatement = null;
 
         try {
-             /* Your logic goes here */
+            System.out.println("-".repeat(80));
+            System.out.println("Student with id:" +  "#" + "was deleted");
+            System.out.println("-".repeat(80));
             throw new SQLException(); // REMOVE THIS (this is just to force it to compile)
         } catch (SQLException sqlException) {
             System.out.println("Failed to delete student");
@@ -125,7 +131,13 @@ public class SchoolManagementSystem {
         Statement sqlStatement = null;
 
         try {
-             /* Your logic goes here */
+        	System.out.println("Student ID | First Name | Last Name | Birthdate");
+            System.out.println("-".repeat(80));
+//            for(int i = 0; i < ; i++) {
+//           	 System.out.println( + " | " +  + " | " +  + " | " +  + " | " +  );
+//            }
+            System.out.println("-".repeat(80)); 
+        	
             throw new SQLException(); // REMOVE THIS (this is just to force it to compile)
         } catch (SQLException sqlException) {
             System.out.println("Failed to create student");
@@ -152,7 +164,13 @@ public class SchoolManagementSystem {
         Statement sqlStatement = null;
 
         try {
-             /* Your logic goes here */
+        	System.out.println("Student ID | class_section_id | First Name | Last Name | Code | Name | Term | Letter Grade");
+            System.out.println("-".repeat(80));
+//            for(int i = 0; i < ; i++) {
+//           	 System.out.println( + " | " +  + " | " +  + " | " +  + " | " +  + " | " +  + " | " +  + " | " +);
+//            }
+            System.out.println("-".repeat(80));
+            
             throw new SQLException(); // REMOVE THIS (this is just to force it to compile)
         } catch (SQLException sqlException) {
             System.out.println("Failed to get class sections");
@@ -178,7 +196,13 @@ public class SchoolManagementSystem {
         Statement sqlStatement = null;
 
         try {
-             /* Your logic goes here */
+        	System.out.println("Class Section ID | Code | Name | Term");
+            System.out.println("-".repeat(80));
+//            for(int i = 0; i < ; i++) {
+//           	 System.out.println( + " | " +  + " | " +  + " | " + );
+//            }
+            System.out.println("-".repeat(80));
+            
             throw new SQLException(); // REMOVE THIS (this is just to force it to compile)
         } catch (SQLException sqlException) {
             System.out.println("Failed to get class sections");
@@ -204,7 +228,13 @@ public class SchoolManagementSystem {
         Statement sqlStatement = null;
 
         try {
-             /* Your logic goes here */
+        	System.out.println("Class ID | Code | Name | Maximum Students");
+            System.out.println("-".repeat(80));
+//            for(int i = 0; i < ; i++) {
+//           	 System.out.println( + " | " +  + " | " +  + " | " + );
+//            }
+            System.out.println("-".repeat(80));
+            
             throw new SQLException(); // REMOVE THIS (this is just to force it to compile)
         } catch (SQLException sqlException) {
             System.out.println("Failed to get students");
@@ -231,7 +261,13 @@ public class SchoolManagementSystem {
         Statement sqlStatement = null;
 
         try {
-             /* Your logic goes here */
+             System.out.println("Student ID	| First Name | Last Name | Birthdate");
+             System.out.println("-".repeat(80));
+//             for(int i = 0; i < ; i++) {
+//            	 System.out.println( + " | " +  + " | " +  + " | " + );
+//             }
+             System.out.println("-".repeat(80));
+             
             throw new SQLException(); // REMOVE THIS (this is just to force it to compile)
         } catch (SQLException sqlException) {
             System.out.println("Failed to get students");
@@ -334,4 +370,3 @@ public class SchoolManagementSystem {
         System.out.println("Bye!");
     }
 }
-
